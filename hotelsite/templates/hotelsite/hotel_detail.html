@@ -1,6 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+
+{% block title %}
 <h2>{{ hotel.name }}</h2>
 <h5>{{ hotelsite.review_set.count }} reviews ({{ hotelsite.average_rating | floatformat }} average rating)</h5>
+{% endblock %}
 
+{% block content %}
 <h3>Recent reviews</h3>
 
 {% if hotel.hotel_set.all %}
@@ -22,8 +29,13 @@
 <h3>Add your review</h3>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'hotelsite:add_review' hotel.id %}" method="post">
+<form action="{% url 'hotelsite:add_review' hotel.id %}" method="post" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Add" />
+	{% bootstrap_form form layout='inline' %}
+   {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      {% bootstrap_icon "star" %} Add
+    </button>
+    {% endbuttons %}
 </form>
+{% endblock %}
