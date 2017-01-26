@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+<h2><a href="{% url 'reviews:hotel_detail' review.hotel.id %}">{{ review.hotel.name }}</a></h2>
+{% endblock %}
+
+{% block content %}
+<h4>Rated {{ review.rating }} of 5 by {{ review.user_name }}</h4>
+<p>{{ review.pub_date }}</p>
+<p>{{ review.comment }}</p>
+<h2>{{ hotel.name }}
+<p>{{ hotel.add1 }}
+<p>{{ hotel.add2 }}
+<p>{{ hotel.city }}, {{ state }}  {{ zipcode }}
+
+{% endblock content %}
+

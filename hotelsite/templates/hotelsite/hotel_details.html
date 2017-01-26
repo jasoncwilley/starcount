@@ -1,5 +1,5 @@
 <h2>{{ hotel.name }}</h2>
-<h5>{{ hotel.review_set.count }} reviews ({{ hotel.average_rating | floatformat }} average rating)</h5>
+<h5>{{ hotelsite.review_set.count }} reviews ({{ hotelsite.average_rating }} average rating)</h5>
 
 <h3>Recent reviews</h3>
 
@@ -8,8 +8,8 @@
     {% for review in hotel.review_set.all %}
     <div>
         <em>{{ review.description }}</em>
-        <h6>Rated {{ review.rating }} of 5 by {{ review.user_id }}</h6>
-        <h5><a href="{% url 'hotelsite:reviewdetail' review.id %}">
+        <h6>Rated {{ review.rating }} of 5 by {{ review.name }}</h6>
+        <h5><a href="{% url 'hotelsite:reviewdetails' review.id %}">
         Read more
         </a></h5>
     </div>
@@ -27,4 +27,3 @@
     {{ form.as_p }}
     <input type="submit" value="Add" />
 </form>
-

@@ -7,7 +7,7 @@ import numpy as np
 class Hotel(models.Model):
 	#namehotel = models.CharField(max_length=60)
 	name = models.CharField(max_length=60)
-	user = models.ForeignKey(User, null=False, blank=False)		
+	user = models.ForeignKey(User, null=False, blank=False)
 	add1 = models.CharField(max_length=50)
 	add2 = models.CharField(max_length=50, null=True, blank=True)
 	city = models.CharField(max_length=50)
@@ -22,7 +22,7 @@ class Hotel(models.Model):
 		return self.name
 
 class Review(models.Model):
-	rating = (
+	RATING_CHOICES = (
         (1, '1'),
         (2, '2'),
         (3, '3'),
@@ -30,9 +30,10 @@ class Review(models.Model):
         (5, '5'),
     )
 	#hotelname = models.ForeignKey(User, null=False, blank=False)
-	user = models.ForeignKey(User, null=False, blank=False)	
-	name = models.ForeignKey(Hotel, null=False, blank=False)	
-	date = models.DateTimeField()	
+	user = models.ForeignKey(User, null=False, blank=False)
+	hotel = models.ForeignKey(Hotel, null=False, blank=False)
+	user_name = models.CharField(max_length=25)	
+	date = models.DateTimeField('date_published')
 	title = models.CharField(max_length= 50)
 	description = models.TextField(max_length=5000)
-	rating = models.IntegerField(choices=rating)
+	rating = models.IntegerField(choices=RATING_CHOICES)
