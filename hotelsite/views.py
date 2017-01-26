@@ -7,7 +7,7 @@ from .forms import ReviewForm
 import datetime
 
 def review_list(request):
-    review_list = Review.objects.order_by('-date')[:5]
+    review_list = Review.objects.order_by('-date')[:10]
     context = {'review_list':review_list}
     return render(request, 'review_list.html', context)
 

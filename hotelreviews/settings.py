@@ -32,7 +32,6 @@ TEMPLATES = [
 
 
 
-LOGIN_REDIRECT_URL = '/hotelsite/'
 
 ALLOWED_HOSTS = []
 
@@ -54,7 +53,7 @@ INSTALLED_APPS = (
 	
     )
 
-SITE_ID = 1 
+SITE_ID = 1
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
 REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 
