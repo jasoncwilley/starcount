@@ -57,4 +57,7 @@ def user_review_list(request, username=None):
         username = request.user.username
         review_list = Review.objects.filter(user_name=username).order_by('-date')
         context = {'review_list':review_list, 'username':username}
-        return render(request, 'user_review_list.html', context)
+        return render(request, 'hotelsite/review/user.id', context)
+        
+def registration_form(request):
+    return render(request, 'registration_form.html')
