@@ -1,10 +1,14 @@
+{% extends 'base.html' %}
 
+{% block title %}
 <h2>Hotel list</h2>
+{% endblock title %}
 
+{% block content %}
 {% if hotel_list %}
-<div>
+<div class="row">
     {% for hotel in hotel_list %}
-    <div>
+  <div class="col-xs-6 col-lg-4">
         <h4><a href="{% url 'hotelsite:hotel_detail' hotel.id %}">
         {{ hotel.name }}
         </a></h4>
@@ -16,3 +20,4 @@
 {% else %}
     <p>No Hotels are available.</p>
 {% endif %}
+{% endblock content %}

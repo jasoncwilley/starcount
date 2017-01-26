@@ -22,7 +22,25 @@ SECRET_KEY = '8fr_p^do!jp@1*0l-=1z_cjd)=j9i-@b!zp2=xml$)r_@o43w='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
+
+LOGIN_REDIRECT_URL = '/hotelsite/review/user'
 
 ALLOWED_HOSTS = []
 
@@ -38,8 +56,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.shortcuts',
 	'bootstrap3',
-    'hotelsite'
+    'hotelsite',
+	'registration'
 )
+
+
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
