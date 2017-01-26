@@ -51,7 +51,7 @@ INSTALLED_APPS = (
     'django.shortcuts',
 	'bootstrap3',
     'hotelsite',
-	'accounts',
+	
     )
 
 SITE_ID = 1 
