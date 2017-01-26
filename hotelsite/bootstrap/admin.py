@@ -1,6 +1,6 @@
 from django.contrib import admin
+from hotelsite.models import Review, Hotel
 
-from .models import Hotel, Review
 
 class ReviewAdmin(admin.ModelAdmin):
     model = Review
@@ -10,3 +10,4 @@ class ReviewAdmin(admin.ModelAdmin):
     
 admin.site.register(Hotel)
 admin.site.register(Review, ReviewAdmin)
+

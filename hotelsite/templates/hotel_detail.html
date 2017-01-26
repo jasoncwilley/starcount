@@ -4,15 +4,15 @@
 
 {% block title %}
 <h2>{{ hotel.name }}</h2>
-<h5>{{ hotelsite.review_set.count }} reviews ({{ hotelsite.average_rating | floatformat }} average rating)</h5>
+<h5>{{ hotel.review_set.count }} reviews ({{ hotel_averagerating }} average rating)</h5>
 {% endblock %}
 
 {% block content %}
 <h3>Recent reviews</h3>
 
-{% if hotel.hotel_set.all %}
+{% if hotel_set.all %}
 <div class="row">
-    {% for review in hotelsite.review_set.all %}
+    {% for review in review_set.all %}
      <div class="col-xs-6 col-lg-4">
         <em>{{ review.description }}</em>
         <h6>Rated {{ review.rating }} of 5 by {{ review.user_name }}</h6>
@@ -31,9 +31,9 @@
 
 <form action="{% url 'hotelsite:add_review' hotel.id %}" method="post" class="form">
     {% csrf_token %}
-	{% for field in form %}
-    {% bootstrap_field field %}
-{% endfor %}
+    {% for field in form %}
+     {% bootstrap_field field %}
+ {% endfor %}
    {% buttons %}
     <button type="submit" class="btn btn-primary">
       {% bootstrap_icon "star" %} Add

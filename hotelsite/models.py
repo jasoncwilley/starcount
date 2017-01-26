@@ -7,14 +7,13 @@ import numpy as np
 class Hotel(models.Model):
 	#namehotel = models.CharField(max_length=60)
 	name = models.CharField(max_length=60)
-	user = models.ForeignKey(User, null=False, blank=False)
 	add1 = models.CharField(max_length=50)
 	add2 = models.CharField(max_length=50, null=True, blank=True)
 	city = models.CharField(max_length=50)
 	state = models.CharField(max_length= 2)
 	zipcode = models.CharField(max_length=5)
 
-	def average_rating(self):
+	def averagerating(self):
 		all_ratings = map(lambda x: x.rating, self.review_set.all())
 		return np.mean(all_ratings)
 
@@ -29,10 +28,9 @@ class Review(models.Model):
         (4, '4'),
         (5, '5'),
     )
-	#hotelname = models.ForeignKey(User, null=False, blank=False)
-	user = models.ForeignKey(User, null=False, blank=False)
+	
 	hotel = models.ForeignKey(Hotel, null=False, blank=False)
-	user_name = models.CharField(max_length=25)	
+	user_name = models.CharField(max_length=25)
 	date = models.DateTimeField('date_published')
 	title = models.CharField(max_length= 50)
 	description = models.TextField(max_length=5000)

@@ -40,7 +40,7 @@ TEMPLATES = [
 
 
 
-LOGIN_REDIRECT_URL = '/hotelsite/review/user'
+LOGIN_REDIRECT_URL = '/hotelsite/'
 
 ALLOWED_HOSTS = []
 
