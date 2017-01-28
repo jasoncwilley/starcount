@@ -50,13 +50,13 @@ INSTALLED_APPS = (
     'django.shortcuts',
 	'bootstrap3',
     'hotelsite',
-	
+	'django_google_maps',
     )
 
 SITE_ID = 1
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
 REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
-
+GOOGLE_MAPS_API_KEY =  'AIzaSyAEL9k6gS-nZw-XvmS4cCoz1k__I0NCF3g' 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
