@@ -61,3 +61,4 @@ def user_review_list(request, username=None):
         
 def registration_form(request):
     return render(request, 'registration_form.html')
+f
