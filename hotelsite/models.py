@@ -2,7 +2,6 @@ from django.db import models
 from mongoengine import *
 from django.contrib.auth.models import User
 import numpy as np
-from django.db import models
 from django_google_maps import fields as map_fields
 
 class Hotel(models.Model):

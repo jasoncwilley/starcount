@@ -4,7 +4,7 @@
 
 {% block title %}
 <h2>{{ hotel.name }}</h2>
-<h5>{{ hotel.review_set.count }} reviews ({{ hotel_averagerating }} average rating)</h5>
+<h5>{{ hotel.review_set.count }} reviews {{ hotel_averagerating }} average rating</h5>
 {% endblock %}
 
 {% block content %}
@@ -34,10 +34,11 @@
     {% for field in form %}
      {% bootstrap_field field %}
  {% endfor %}
-   {% buttons %}
+   {% buttons %} <br>
     <button type="submit" class="btn btn-primary">
-      {% bootstrap_icon "star" %} Add
+      {% bootstrap_icon "star" %} Add Your Review
     </button>
+
     {% endbuttons %}
 </form>
 {% endblock %}

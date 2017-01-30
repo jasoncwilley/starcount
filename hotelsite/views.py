@@ -34,7 +34,8 @@ def add_review(request, hotel_id):
     if form.is_valid():
         rating = form.cleaned_data['rating']
         description = form.cleaned_data['description']
-        #user_name = form.cleaned_data['user_name']
+        user_name = form.cleaned_data['user_name']
+        hotel = form.cleaned_data['hotel']
         user_name = request.user.username
         review = Review()
         review.hotel = hotel
@@ -61,4 +62,3 @@ def user_review_list(request, username=None):
         
 def registration_form(request):
     return render(request, 'registration_form.html')
-f

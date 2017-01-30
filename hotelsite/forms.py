@@ -5,7 +5,7 @@ from hotelsite.models import Review, Hotel
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
-        fields = ['rating', 'description']
+        fields = ['user_name', 'hotel', 'rating', 'description']
         widgets = {
-            'description': Textarea(attrs={'cols': 10, 'rows': 4}),
+            'description': Textarea(attrs={'cols': 5, 'rows': 4}),
         }

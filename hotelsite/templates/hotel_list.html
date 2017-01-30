@@ -9,9 +9,9 @@
 <div class="row">
     {% for hotel in hotel_list %}
   <div class="col-xs-6 col-lg-4">
-        <h4><a href="{% url 'hotelsite:hotel_detail' hotel.id %}">
+        <h3><a href="{% url 'hotelsite:hotel_detail' hotel.id %}">
         {{ hotel.name }}
-        </a></h4>
+      </a></h3>
         <h5>{{ hotel.review_set.count }} reviews</h5>
         <h5>{{ hotel_averagerating | floatformat }} average rating</h5>
     </div>
